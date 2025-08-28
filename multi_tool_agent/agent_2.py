@@ -1,7 +1,16 @@
 from google.adk.agents import LlmAgent
 from google.adk.tools import google_search
+from agents.extensions.models.litellm_model import LitellmModel
 
-MODEL = "gemini-2.0-flash-001"
+# MODEL = "gemini-2.0-flash-001"
+
+config = {
+    "model": "lm_studio/qwen3-4b-thinking-2507",
+    "api_key": "lm-studio",
+    "base_url": "http://localhost:1234/v1"
+}
+
+MODEL = LitellmModel(**config)
 
 idea_agent = LlmAgent(
     model=MODEL,

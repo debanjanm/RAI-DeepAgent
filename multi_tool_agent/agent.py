@@ -2,7 +2,15 @@ from google.adk.agents import LlmAgent
 # from google.adk.tools import text2im, google_search  # add any other tools as needed
 
 # Agent Definitions for AI-Powered Cinematic Storytelling Hackathon
-MODEL = "gemini-2.0-flash-001"
+# MODEL = "gemini-2.0-flash-001"
+from google.adk.models.lite_llm import LiteLlm
+config = {
+    "model": "lm_studio/qwen3-4b-thinking-2507",
+    "api_key": "lm-studio",
+    "base_url": "http://localhost:1234/v1"
+}
+
+MODEL = LiteLlm(**config)
 
 # Writer Agent: Crafts the high-level story blueprint
 writer_agent = LlmAgent(
